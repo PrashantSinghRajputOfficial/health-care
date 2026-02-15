@@ -31,7 +31,7 @@ Ye ek complete healthcare system hai jo 3 main problems solve karta hai:
 - **AI/ML**: Scikit-learn, Pandas
 
 ## 📋 Features
-✅ ABHA-based login (mock implementation)
+✅ Email-based secure login
 ✅ Patient health dashboard
 ✅ AI health risk prediction (Low/Medium/High)
 ✅ Emergency detection logic
@@ -64,7 +64,7 @@ Ye ek complete healthcare system hai jo 3 main problems solve karta hai:
 ## 📊 Workflow
 
 ### Normal Flow:
-1. Patient ABHA login → Dashboard
+1. Patient email login → Dashboard
 2. Health vitals input → AI prediction
 3. Risk score display → Recommendations
 
@@ -102,8 +102,8 @@ python app.py
 
 ## 🔒 Security
 - Role-based access control
-- Data encryption (mock)
-- ABHA authentication (demo)
+- Data encryption
+- Firebase authentication
 
 ## 🏆 Hackathon Pitch
-"Humara system AI use karke health risks ko predict karta hai aur emergency mein life-saving decisions fast banata hai. ABHA integration se India-ready solution hai!"
+"Humara system AI use karke health risks ko predict karta hai aur emergency mein life-saving decisions fast banata hai. Firebase authentication se secure aur India-ready solution hai!"

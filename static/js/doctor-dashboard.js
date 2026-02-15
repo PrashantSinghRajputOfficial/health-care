@@ -97,7 +97,7 @@ window.logout = logout;
 const patientDatabase = {
     'JD': {
         name: 'John Doe',
-        id: 'ABHA: 12345-67890',
+        id: 'Patient ID: P12345',
         age: '45 years',
         gender: 'Male',
         bloodGroup: 'O+',
@@ -128,7 +128,7 @@ const patientDatabase = {
     },
     'MJ': {
         name: 'Mary Johnson',
-        id: 'ABHA: 23456-78901',
+        id: 'Patient ID: P23456',
         age: '38 years',
         gender: 'Female',
         bloodGroup: 'A+',
@@ -157,7 +157,7 @@ const patientDatabase = {
     },
     'RS': {
         name: 'Robert Smith',
-        id: 'ABHA: 34567-89012',
+        id: 'Patient ID: P34567',
         age: '52 years',
         gender: 'Male',
         bloodGroup: 'B+',
@@ -184,7 +184,7 @@ const patientDatabase = {
     },
     'LW': {
         name: 'Lisa Williams',
-        id: 'ABHA: 45678-90123',
+        id: 'Patient ID: P45678',
         age: '29 years',
         gender: 'Female',
         bloodGroup: 'AB+',
