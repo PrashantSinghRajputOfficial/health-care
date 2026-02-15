@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="/static/css/healthcare-complete.css">
+    <link rel="stylesheet" href="/static/css/healthcare-chatbot.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🏥 HealthCare+</div>
+        <div class="nav-user">
+            <span id="doctorName">Dr. Sarah Smith</span>
+            <button onclick="logout()" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Doctor Dashboard</h1>
+            <div class="alert-badge" id="emergencyBadge">
+                <span class="badge-count">2</span> Emergency Alerts
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Emergency Alerts -->
+            <div class="card emergency-card">
+                <h2>🚨 Emergency Alerts</h2>
+                <div class="emergency-list">
+                    <div class="emergency-item critical">
+                        <div class="emergency-header">
+                            <span class="emergency-status">CRITICAL</span>
+                            <span class="emergency-time">2 min ago</span>
+                        </div>
+                        <div class="emergency-patient">Patient: John Doe (ID: 12345)</div>
+                        <div class="emergency-details">Chest pain, difficulty breathing</div>
+                        <div class="emergency-vitals">HR: 120 bpm | BP: 160/95 | O2: 92%</div>
+                        <button class="btn-respond">Respond Now</button>
+                    </div>
+                    <div class="emergency-item urgent">
+                        <div class="emergency-header">
+                            <span class="emergency-status">URGENT</span>
+                            <span class="emergency-time">15 min ago</span>
+                        </div>
+                        <div class="emergency-patient">Patient: Mary Johnson (ID: 67890)</div>
+                        <div class="emergency-details">Severe headache, dizziness</div>
+                        <div class="emergency-vitals">HR: 95 bpm | BP: 145/90 | O2: 96%</div>
+                        <button class="btn-respond">Respond Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patient Summary -->
+            <div class="card">
+                <h2>Today's Patients</h2>
+                <div class="patient-summary-list">
+                    <div class="patient-summary-item">
+                        <div class="patient-info">
+                            <div class="patient-avatar">JD</div>
+                            <div>
+                                <div class="patient-name">John Doe</div>
+                                <div class="patient-id">ABHA: 12345-67890</div>
+                            </div>
+                        </div>
+                        <div class="patient-risk high">High Risk</div>
+                        <div class="patient-time">10:00 AM</div>
+                        <button class="btn-view" onclick="showPatientDetails('JD', 'John Doe', 'ABHA: 12345-67890', 'High Risk', '10:00 AM')">View</button>
+                    </div>
+                    <div class="patient-summary-item">
+                        <div class="patient-info">
+                            <div class="patient-avatar">MJ</div>
+                            <div>
+                                <div class="patient-name">Mary Johnson</div>
+                                <div class="patient-id">ABHA: 23456-78901</div>
+                            </div>
+                        </div>
+                        <div class="patient-risk moderate">Moderate Risk</div>
+                        <div class="patient-time">11:30 AM</div>
+                        <button class="btn-view" onclick="showPatientDetails('MJ', 'Mary Johnson', 'ABHA: 23456-78901', 'Moderate Risk', '11:30 AM')">View</button>
+                    </div>
+                    <div class="patient-summary-item">
+                        <div class="patient-info">
+                            <div class="patient-avatar">RS</div>
+                            <div>
+                                <div class="patient-name">Robert Smith</div>
+                                <div class="patient-id">ABHA: 34567-89012</div>
+                            </div>
+                        </div>
+                        <div class="patient-risk low">Low Risk</div>
+                        <div class="patient-time">2:00 PM</div>
+                        <button class="btn-view" onclick="showPatientDetails('RS', 'Robert Smith', 'ABHA: 34567-89012', 'Low Risk', '2:00 PM')">View</button>
+                    </div>
+                    <div class="patient-summary-item">
+                        <div class="patient-info">
+                            <div class="patient-avatar">LW</div>
+                            <div>
+                                <div class="patient-name">Lisa Williams</div>
+                                <div class="patient-id">ABHA: 45678-90123</div>
+                            </div>
+                        </div>
+                        <div class="patient-risk low">Low Risk</div>
+                        <div class="patient-time">3:30 PM</div>
+                        <button class="btn-view" onclick="showPatientDetails('LW', 'Lisa Williams', 'ABHA: 45678-90123', 'Low Risk', '3:30 PM')">View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patient Details View -->
+            <div class="card patient-details-card">
+                <h2>Patient Details</h2>
+                <div class="patient-details">
+                    <div class="detail-section">
+                        <h3>Personal Information</h3>
+                        <div class="detail-row">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value">John Doe</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Age:</span>
+                            <span class="detail-value">45 years</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Blood Group:</span>
+                            <span class="detail-value">O+</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">ABHA ID:</span>
+                            <span class="detail-value">12345-67890</span>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Medical History</h3>
+                        <ul class="medical-history">
+                            <li>Hypertension (2020)</li>
+                            <li>Type 2 Diabetes (2018)</li>
+                            <li>Allergic to Penicillin</li>
+                        </ul>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Current Medications</h3>
+                        <ul class="medications">
+                            <li>Metformin 500mg - Twice daily</li>
+                            <li>Lisinopril 10mg - Once daily</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card">
+                <h2>Quick Actions</h2>
+                <div class="quick-actions">
+                    <button class="action-btn">📝 Write Prescription</button>
+                    <button class="action-btn">📋 Add Notes</button>
+                    <button class="action-btn">🔬 Order Tests</button>
+                    <button class="action-btn">📅 Schedule Follow-up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Patient Details Modal -->
+    <div id="patientModal" class="modal hidden">
+        <div class="modal-overlay" onclick="closePatientModal()"></div>
+        <div class="modal-content patient-modal">
+            <div class="modal-header">
+                <h2 id="modalPatientName">Patient Details</h2>
+                <button class="modal-close" onclick="closePatientModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="patient-modal-header">
+                    <div class="patient-avatar-large" id="modalAvatar">JD</div>
+                    <div class="patient-modal-info">
+                        <h3 id="modalFullName">John Doe</h3>
+                        <p id="modalPatientId">ABHA: 12345-67890</p>
+                        <div class="patient-risk-badge" id="modalRiskBadge">High Risk</div>
+                    </div>
+                </div>
+
+                <div class="modal-sections">
+                    <!-- Personal Information -->
+                    <div class="modal-section">
+                        <h3>📋 Personal Information</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value" id="modalAge">45 years</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Gender:</span>
+                                <span class="info-value" id="modalGender">Male</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Blood Group:</span>
+                                <span class="info-value" id="modalBloodGroup">O+</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Phone:</span>
+                                <span class="info-value" id="modalPhone">+91 98765 43210</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Appointment:</span>
+                                <span class="info-value" id="modalAppointment">10:00 AM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Vitals -->
+                    <div class="modal-section">
+                        <h3>💓 Current Vitals</h3>
+                        <div class="vitals-grid-modal">
+                            <div class="vital-card">
+                                <div class="vital-icon">❤️</div>
+                                <div class="vital-label">Heart Rate</div>
+                                <div class="vital-value">78 bpm</div>
+                            </div>
+                            <div class="vital-card">
+                                <div class="vital-icon">💉</div>
+                                <div class="vital-label">Blood Pressure</div>
+                                <div class="vital-value">120/80</div>
+                            </div>
+                            <div class="vital-card">
+                                <div class="vital-icon">🫁</div>
+                                <div class="vital-label">SpO2</div>
+                                <div class="vital-value">98%</div>
+                            </div>
+                            <div class="vital-card">
+                                <div class="vital-icon">🌡️</div>
+                                <div class="vital-label">Temperature</div>
+                                <div class="vital-value">98.6°F</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medical History -->
+                    <div class="modal-section">
+                        <h3>🏥 Medical History</h3>
+                        <ul class="medical-history-list">
+                            <li>Hypertension (Diagnosed: 2020)</li>
+                            <li>Type 2 Diabetes (Diagnosed: 2018)</li>
+                            <li>Allergic to Penicillin</li>
+                        </ul>
+                    </div>
+
+                    <!-- Current Medications -->
+                    <div class="modal-section">
+                        <h3>💊 Current Medications</h3>
+                        <ul class="medications-list">
+                            <li>
+                                <strong>Metformin 500mg</strong> - Twice daily with meals
+                            </li>
+                            <li>
+                                <strong>Lisinopril 10mg</strong> - Once daily in the morning
+                            </li>
+                            <li>
+                                <strong>Aspirin 75mg</strong> - Once daily
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Lab Results -->
+                    <div class="modal-section">
+                        <h3>🔬 Recent Lab Results</h3>
+                        <div class="lab-results">
+                            <div class="lab-item">
+                                <span class="lab-name">Blood Sugar (Fasting)</span>
+                                <span class="lab-value">110 mg/dL</span>
+                                <span class="lab-status normal">Normal</span>
+                            </div>
+                            <div class="lab-item">
+                                <span class="lab-name">HbA1c</span>
+                                <span class="lab-value">6.5%</span>
+                                <span class="lab-status warning">Borderline</span>
+                            </div>
+                            <div class="lab-item">
+                                <span class="lab-name">Cholesterol</span>
+                                <span class="lab-value">180 mg/dL</span>
+                                <span class="lab-status normal">Normal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="modal-actions">
+                    <button class="action-btn-modal primary">📝 Write Prescription</button>
+                    <button class="action-btn-modal">📋 Add Notes</button>
+                    <button class="action-btn-modal">🔬 Order Tests</button>
+                    <button class="action-btn-modal">📅 Schedule Follow-up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="/static/js/firebase-config.js"></script>
+    
+    <!-- Dashboard Logic -->
+    <script src="/static/js/doctor-dashboard.js"></script>
+    
+    <!-- Chatbot -->
+    <script src="/static/js/healthcare-chatbot.js"></script>
+</body>
+</html>

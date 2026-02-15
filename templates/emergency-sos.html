@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency SOS - HealthCare+</title>
+    <link rel="stylesheet" href="/static/css/emergency-sos.css">
+    <link rel="stylesheet" href="/static/css/healthcare-chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="emergency-pulse">🚨</div>
+            <h2>Emergency SOS</h2>
+            <p id="loadingMessage">Detecting your location...</p>
+            <div class="loading-spinner"></div>
+            <div style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                <p id="loadingTip">Please allow location access when prompted</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main SOS Interface -->
+    <div id="sosInterface" class="sos-interface hidden">
+        <!-- Header -->
+        <header class="sos-header">
+            <div class="header-content">
+                <h1>🚨 Emergency SOS</h1>
+                <div class="location-status" id="locationStatus">
+                    <span class="location-icon">📍</span>
+                    <span id="currentLocation">Detecting location...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Emergency Quick Actions -->
+        <section class="emergency-actions">
+            <div class="action-grid">
+                <button class="emergency-btn call-108" onclick="callEmergency('108')">
+                    <span class="btn-icon">📞</span>
+                    <span class="btn-text">Call 108</span>
+                    <span class="btn-subtitle">National Emergency</span>
+                </button>
+                
+                <button class="emergency-btn call-hospital" onclick="callNearestHospital()" id="callHospitalBtn" disabled>
+                    <span class="btn-icon">🏥</span>
+                    <span class="btn-text">Call Hospital</span>
+                    <span class="btn-subtitle">Nearest Available</span>
+                </button>
+                
+                <button class="emergency-btn share-location" onclick="shareLocation()">
+                    <span class="btn-icon">📍</span>
+                    <span class="btn-text">Share Location</span>
+                    <span class="btn-subtitle">WhatsApp/SMS</span>
+                </button>
+                
+                <button class="emergency-btn ambulance" onclick="callAmbulance()">
+                    <span class="btn-icon">🚑</span>
+                    <span class="btn-text">Ambulance</span>
+                    <span class="btn-subtitle">Request Now</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Map Container -->
+        <section class="map-section">
+            <div class="map-header">
+                <h2>Nearest Hospitals</h2>
+                <div class="map-controls">
+                    <button class="control-btn" onclick="toggleMapView()" id="mapToggle">
+                        <span>🗺️ Map View</span>
+                    </button>
+                    <button class="control-btn" onclick="refreshLocation()">
+                        <span>🔄 Refresh</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Map Container -->
+            <div id="mapContainer" class="map-container hidden">
+                <div id="emergencyMap" class="emergency-map"></div>
+            </div>
+            
+            <!-- Hospital List -->
+            <div id="hospitalList" class="hospital-list">
+                <div class="search-status" id="searchStatus">
+                    <div class="status-spinner"></div>
+                    <span>Searching for nearest hospitals...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manual Location Input (Fallback) -->
+        <section class="manual-location hidden" id="manualLocation">
+            <div class="manual-input">
+                <h3>⚠️ Location Access Denied</h3>
+                <p>Please enter your city manually for emergency services:</p>
+                <div class="input-group">
+                    <input type="text" id="cityInput" placeholder="Enter your city name" />
+                    <button onclick="searchByCity()" class="search-btn">Search</button>
+                </div>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <button onclick="retryLocation()" class="search-btn" style="background: var(--emergency-green);">
+                        📍 Try Location Again
+                    </button>
+                </div>
+                <div style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; text-align: center;">
+                    <p>💡 <strong>Tip:</strong> For better accuracy, please allow location access when prompted by your browser.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Hospital Detail Modal -->
+    <div id="hospitalModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalHospitalName">Hospital Name</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Hospital details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Messages -->
+    <div id="errorToast" class="error-toast hidden">
+        <div class="toast-content">
+            <span class="toast-icon">⚠️</span>
+            <span id="errorMessage">Error message</span>
+            <button onclick="hideError()" class="toast-close">&times;</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/emergency-sos.js"></script>
+    <script src="/static/js/healthcare-chatbot.js"></script>
+    
+    <!-- Leaflet.js for OpenStreetMap (Free, No API Key Required) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Healthcare System - Welcome</title>
+    <link rel="stylesheet" href="/static/css/healthcare-complete.css">
+    <link rel="stylesheet" href="/static/css/healthcare-chatbot.css">
+    <style>
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .welcome-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+            max-width: 600px;
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .welcome-title {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #14b8a6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .welcome-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .welcome-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-item {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(20, 184, 166, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(20, 184, 166, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .login-button {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .login-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(20, 184, 166, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-box">
+            <h1 class="welcome-title">🏥 HealthCare+</h1>
+            <h2 class="welcome-subtitle">Smart Healthcare Management System</h2>
+            <p class="welcome-description">
+                Advanced ABHA-based healthcare platform with AI-powered risk assessment, 
+                emergency response system, and comprehensive patient management.
+            </p>
+            
+            <div class="welcome-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-title">AI Health Analysis</div>
+                    <div class="feature-desc">Smart risk assessment and health predictions</div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🚨</div>
+                    <div class="feature-title">Emergency Response</div>
+                    <div class="feature-desc">Instant SOS and ambulance dispatch system</div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Health Records</div>
+                    <div class="feature-desc">Secure ABHA-integrated patient data</div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <div class="feature-title">Doctor Dashboard</div>
+                    <div class="feature-desc">Real-time patient monitoring and alerts</div>
+                </div>
+            </div>
+            
+            <a href="login.html" class="login-button">
+                🔐 Access Healthcare System
+            </a>
+        </div>
+    </div>
+    <script src="/static/js/healthcare-chatbot.js"></script>
+</body>
+</html>
