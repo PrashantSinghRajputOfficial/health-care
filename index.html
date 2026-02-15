@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare+ - Redirecting...</title>
+    <meta http-equiv="refresh" content="0; url=templates/index.html">
+    <script>
+        // Instant redirect
+        window.location.replace('templates/index.html');
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            font-family: 'Inter', sans-serif;
+            color: white;
+        }
+        
+        .redirect-container {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(20, 184, 166, 0.3);
+            border-top-color: #14b8a6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #14b8a6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+        
+        a {
+            color: #14b8a6;
+            text-decoration: none;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <div class="spinner"></div>
+        <h1>🏥 HealthCare+</h1>
+        <p>Redirecting to Healthcare System...</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            If not redirected automatically, 
+            <a href="templates/index.html">click here</a>
+        </p>
+    </div>
+</body>
+</html>
